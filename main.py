@@ -36,12 +36,6 @@ class GithubHook(MethodView):
         if request_json.get("action") != "opened":
             return "Meh, only care about opens"
 
-        if pull_request.get("deletions") > 0:
-            return "You deleted some stuff? Awesome!"
-
-        if pull_request.get("additions") < 10:
-            return "You didn't add much, that's probably legit!"
-
         links = pull_request.get("_links")
         pull_request_link = links.get("self").get("href")
         comments_url = links.get("comments").get("href")
