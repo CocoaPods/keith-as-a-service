@@ -15,8 +15,7 @@ serve: verify
 verify: \
 	guard-hook_secret \
 	guard-github_user \
-	guard-github_pass \
-	guard-message
+	guard-github_pass
 
 guard-%:
 	@ if [ "${${*}}" == "" ]; then \
